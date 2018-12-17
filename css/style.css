@@ -49,4 +49,5 @@ h2 {
   line-height: 200px;
   font-size: 5em;
   color: red;
+  cursor: pointer;
 }
