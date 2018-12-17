@@ -34,20 +34,57 @@ h2 {
   position: relative;
   display: block;
   width: 650px;
+  height: 650px;
   background-color: black;
   margin: 30px auto;
 }
 
 .squares {
-  margin: 1%;
+  margin: 1.4%;
   display: inline-block;
-  width: 200px;
-  height: 200px;
+  width: 30%;
+  height: 30%;
   background-color: #aaea05;
   border: 0px;
   text-align: center;
   line-height: 200px;
-  font-size: 5em;
+  font-size: 6em;
   color: red;
   cursor: pointer;
+  padding: 0;
+  position: absolute;
+}
+
+#sq1 {
+  top: 8px;
+  left: 8px;
+}
+#sq2 {
+  top: 8px;
+  left: 216px;
+}
+#sq3 {
+  top: 8px;
+  left: 424px;
+}
+#sq4 {
+  top: 216px;
+  left: 8px;
+}#sq5 {
+  top: 216px;
+  left: 216px;
+}
+#sq6 {
+  top: 216px;
+  left: 424px;
+}#sq7 {
+  top: 424px;
+  left: 8px;
+}
+#sq8 {
+  top: 424px;
+  left: 216px;
+}#sq9 {
+  top: 424px;
+  left: 424px;
 }
