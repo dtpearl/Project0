@@ -1,0 +1,52 @@
+/*
+Color pallet
+
+#05aaea
+https://www.color-hex.com/color/05aaea
+#aaea05
+ */
+
+html {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+}
+
+body {
+  background-color: #05aaea;
+}
+
+h2 {
+  display: inline-block;
+}
+
+#pl2 {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}
+
+.gameboard {
+  position: relative;
+  display: block;
+  width: 650px;
+  background-color: black;
+  margin: 30px auto;
+}
+
+.squares {
+  margin: 1%;
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  background-color: #aaea05;
+  border: 0px;
+  text-align: center;
+  line-height: 200px;
+  font-size: 5em;
+  color: red;
+}
