@@ -36,12 +36,15 @@ const gameboard = {
     ) {
       console.log(`${this.currentPlayer} is the winner`);
       declareWinner(this.currentPlayer);
+    } else if (this.playedNumbers.length === 9) {
+      declareDraw();
     }
   }
 
 }
 
 const updateGameboard = function () {
+  $('.squares').html('');
   for (let i = 0; i < gameboard.player1.length; i++) {
     $(`#sq${gameboard.player1[i]}`).html('X');
   }
@@ -57,6 +60,19 @@ const declareWinner = function (player) {
   $('#winner').html(`The winner is ${winner}!`);
 }
 
+const declareDraw = function () {
+  $('#gameover').show();
+  $('#winner').html(`It's a draw!`);
+}
+
+const resetGame = function () {
+  gameboard.player1 = [];
+  gameboard.player2 = [];
+  gameboard.playedNumbers = [];
+  updateGameboard();
+  $('#gameover').hide();
+};
+
 $(document).ready(function(){
 
 $('.squares').on('click', function(){
@@ -65,6 +81,17 @@ $('.squares').on('click', function(){
   gameboard.takeTurn(squareClicked);
 });
 
+$('#reset-game').on('click', function () {
+  resetGame();
+});
+
+$('#player1').on('keyup', function () {
+  $('#pl1').text($('#player1').val());
+})
+
+$('#player2').on('keyup', function () {
+  $('#pl2').text($('#player2').val());
+})
 });
 
 

@@ -1,6 +1,6 @@
 /*
 Color pallet
-
+#0538ea
 #05aaea
 https://www.color-hex.com/color/05aaea
 #aaea05
@@ -21,17 +21,56 @@ body {
 }
 
 h2 {
+  /* display: inline-block; */
+}
+
+.player-box{
+  position: absolute;
+  height: 80px;
+  width: 35%;
+  background-color: #0538ea;
+}
+
+#pb1 {
+  top: 50px;
+  left: 10px;
+}
+
+#pb2 {
+  top: 50px;
+  right: 10px;
+}
+
+#pl1 {
   display: inline-block;
+  position: absolute;
+  left: 10px;
 }
 
 #pl2 {
   display: inline-block;
   position: absolute;
-  right: 0;
+  right: 10px;
 }
 
+#player1 {
+  margin-top: 20px;
+  padding: 0.5em;
+  border-radius: 5px;
+  margin-left: 146px;
+}
+
+#player2 {
+  margin-top: 20px;
+  padding: 0.5em;
+  border-radius: 5px;
+  margin-left: 10px;
+}
 .gameboard {
-  position: relative;
+  top: 120px;
+  left: 17%;
+  /* position: relative; */
+  position: absolute;
   display: block;
   width: 650px;
   height: 650px;
