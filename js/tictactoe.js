@@ -54,14 +54,14 @@ const updateGameboard = function () {
 };
 
 const declareWinner = function (player) {
-  $('#gameover').show();
+  $('#gameover').show(600);
   const winner = $(`#${player}`).text();
   console.log(winner);
   $('#winner').html(`The winner is ${winner}!`);
 }
 
 const declareDraw = function () {
-  $('#gameover').show();
+  $('#gameover').show(600);
   $('#winner').html(`It's a draw!`);
 }
 
@@ -70,7 +70,7 @@ const resetGame = function () {
   gameboard.player2 = [];
   gameboard.playedNumbers = [];
   updateGameboard();
-  $('#gameover').hide();
+  $('#gameover').hide(600);
 };
 
 $(document).ready(function(){
