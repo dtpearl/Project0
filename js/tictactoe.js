@@ -2,19 +2,19 @@ const gameboard = {
   player1: [],
   player2: [],
   playedNumbers: [],
-  currentPlayer: 'p1',
+  currentPlayer: 'pl1',
   takeTurn: function (num) {
     if ( !this.playedNumbers.includes(num) ){
-      if (gameboard.currentPlayer === 'p1') {
+      if (gameboard.currentPlayer === 'pl1') {
       this.player1.push(num);
       this.playedNumbers.push(num);
       this.checkWin(this.player1);
-      this.currentPlayer = 'p2';
+      this.currentPlayer = 'pl2';
       } else {
       this.player2.push(num);
       this.playedNumbers.push(num);
       this.checkWin(this.player2);
-      this.currentPlayer = 'p1';
+      this.currentPlayer = 'pl1';
       }
     }
     updateGameboard();
@@ -35,23 +35,11 @@ const gameboard = {
 
     ) {
       console.log(`${this.currentPlayer} is the winner`);
+      declareWinner(this.currentPlayer);
     }
   }
 
 }
-
-
-const clickSquare = function (num) {
-  if (gameboard.currentPlayer === 'p1') {
-  gameboard.player1.push(num);
-  gameboard.currentPlayer = 'p2';
-  gameboard.checkWin();
-} else {
-  gameboard.player2.push(num);
-  gameboard.currentPlayer = 'p1';
-  gameboard.checkWin();
-}
-};
 
 const updateGameboard = function () {
   for (let i = 0; i < gameboard.player1.length; i++) {
@@ -62,22 +50,26 @@ const updateGameboard = function () {
   }
 };
 
+const declareWinner = function (player) {
+  $('#gameover').show();
+  const winner = $(`#${player}`).text();
+  console.log(winner);
+  $('#winner').html(`The winner is ${winner}!`);
+}
+
 $(document).ready(function(){
 
 $('.squares').on('click', function(){
   const squareClicked = +$(this).attr('id').slice(2);
   console.log(squareClicked);
   gameboard.takeTurn(squareClicked);
-  // const number = Number(squareClicked.slice(2));
-  // clickSquare(number);
-  // console.log(number);
 });
 
 });
 
 
 
-/*  // this.player one or two contains (win conditions)
+/*  //(win conditions)
 
 
   Win conditions
@@ -89,6 +81,7 @@ $('.squares').on('click', function(){
   369
   159
   357
+
   gameboard.player1.sort().join('')
   .includes('123')
   .includes('456')
