@@ -66,11 +66,13 @@ const declareDraw = function () {
 }
 
 const resetGame = function () {
+  $('.squares').removeClass('reset');
   gameboard.player1 = [];
   gameboard.player2 = [];
   gameboard.playedNumbers = [];
   updateGameboard();
   $('#gameover').hide(600);
+  $('.squares').addClass('reset');
 };
 
 $(document).ready(function(){
