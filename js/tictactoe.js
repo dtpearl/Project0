@@ -6,6 +6,7 @@ const gameboard = {
   playedNumbers: [],
   currentPlayer: 'pl1',
   takeTurn: function (num) {
+
     if ( !this.playedNumbers.includes(num) ){
       if ( gameboard.currentPlayer === 'pl1' ) {
       this.player1.push( num );
@@ -48,7 +49,9 @@ const gameboard = {
 
 // -------------------- DOM Manipulation -------------------
 
+// Updates the gameboard for each move made.
 const updateGameboard = function () {
+
   $( '.squares' ).html( '' );
   for ( let i = 0; i < gameboard.player1.length; i++ ) {
     $( `#sq${gameboard.player1[i]}` ).html( 'X' );
@@ -56,22 +59,26 @@ const updateGameboard = function () {
   for ( let j = 0; j < gameboard.player2.length; j++ ) {
     $( `#sq${gameboard.player2[j]}` ).html( 'O' );
   }
-  $('.player-box').removeClass('highlight');
-  if (gameboard.currentPlayer === 'pl1'){
-    $('#pb1').addClass('highlight');
+  $( '.player-box' ).removeClass( 'highlight' );
+
+  if ( gameboard.currentPlayer === 'pl1' ){
+    $( '#pb1' ).addClass( 'highlight' );
   } else {
-    $('#pb2').addClass('highlight');
+    $( '#pb2' ).addClass( 'highlight' );
   }
 };
 
+// Declares the winner and updates DOM with the winning player's name.
 const declareWinner = function ( player ) {
-  $( '#gameover' ).css("background-image", "");
+
+  $( '#gameover' ).css( "background-image", "" );
   $( '#gameover' ).show( 600 );
   const winner = $(`#${ player }`).text();
-  if (winner === 'Bill Murray') {
+
+  if ( winner === 'Bill Murray' ) {
     $( '#gameover' ).css("background-image", "url(https://fillmurray.com/600/600)");
   }
-  if (winner === 'Nicolas Cage') {
+  if ( winner === 'Nicolas Cage' ) {
     $( '#gameover' ).css("background-image", "url(http://www.placecage.com/610/610)");
   }
   console.log( winner );
@@ -83,6 +90,8 @@ const declareDraw = function () {
   $( '#winner' ).html( `It's a draw!` );
 }
 
+// Resets the game by setting the player and playedNumbers arrays back to empty arrays.
+// Preserves player turn.
 const resetGame = function () {
   $( '.squares' ).removeClass( 'reset' );
   gameboard.player1 = [];
@@ -116,7 +125,7 @@ $( '#player2' ).on( 'keyup', function () {
 
 
 
-/*  //(win conditions)
+/*  ------------------ Win conditions testing -------------------
 
   These are various attempts at game logic.
   Kept for posterity. Each of these represented different attempts to

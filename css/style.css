@@ -16,6 +16,8 @@ html {
   font-family: 'Orbitron', sans-serif;
 }
 
+/*--------- Header --------*/
+
 header {
   background-color: #ba4551;
   height: 150px;
@@ -79,6 +81,8 @@ header h1 {
   left: 10px;
   width: 160px;
 }
+
+/* ---------- Body + Game board ---------- */
 
 body {
   background-color: #ba4551;
@@ -182,7 +186,7 @@ body {
   text-align: center;
   font-size: 2.5em;
 }
-
+/* ---------- Absolute position of each square --------- */
 #sq1 {
   top: 8px;
   left: 8px;
