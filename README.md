@@ -13,7 +13,7 @@ The task was to replicate the game of Tic Tac Toe, and in the process develop th
 
 ## HTML
 
-- Use semantic tags <head> <header> <body> etc. to set out the HTML document.
+- Use semantic tags `<head> <header> <body>` etc. to set out the HTML document.
 - Use appropriate class names and IDs to style elements with CSS and manipulate with JavaScript.
 
 
@@ -35,7 +35,7 @@ I used a wide variety of CSS selectors to create the current version:
 ### Interesting learning experiences  
 
 - The gameboard layout gave me heaps of problems until I used position absolute to get everything to stay put.
-- I used a hidden <div> to declare a winner that also solved the issue of stopping players clicking on extra squares.
+- I used a hidden `<div>` to declare a winner that also solved the issue of stopping players clicking on extra squares.
 - Getting the reset animation working was a big learning experience. I looked at various animations on Codepen and examined their code until I worked out how to include it in my own.
 - I then had to work out where to add and remove the class to get working.
 - Showing my game to other students and getting their feedback gave me great ideas on how to modify my code.
