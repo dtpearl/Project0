@@ -60,8 +60,15 @@ const updateGameboard = function () {
 };
 
 const declareWinner = function ( player ) {
+  $( '#gameover' ).css("background-image", "");
   $( '#gameover' ).show( 600 );
   const winner = $(`#${ player }`).text();
+  if (winner === 'Bill Murray') {
+    $( '#gameover' ).css("background-image", "url(https://fillmurray.com/600/600)");
+  }
+  if (winner === 'Nicolas Cage') {
+    $( '#gameover' ).css("background-image", "url(http://www.placecage.com/610/610)");
+  }
   console.log( winner );
   $( '#winner' ).html( `The winner is ${ winner }!` );
 }

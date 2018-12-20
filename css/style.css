@@ -303,6 +303,7 @@ body {
 .squares:hover {
   background-color: rgba(69, 186, 116, 0.3);
 }
+
 .reset{
   animation: center 1.5s ease-in-out;
   /* animation: spin 1s ease-in-out;
@@ -341,8 +342,9 @@ body {
   width: 100%;
   opacity: 0.9;
   background-color: #005088;
-  /* background-color: #0538ea; */
   border-radius: 10px;
+  background-position: center;
+  background-size: cover;
 }
 
 #reset-game {
