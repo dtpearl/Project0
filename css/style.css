@@ -214,12 +214,12 @@ header h1 {
   height: 80px;
   width: 35%;
   top: 70px;
-  background-color: #0538ea;
+  background-color: #005088;
   border-radius: 5px;
 }
 
 .highlight {
-  border: 5px solid #45ba74;
+  box-shadow: 15px 10px 25px #45ba74;
 }
 
 #pb1 {

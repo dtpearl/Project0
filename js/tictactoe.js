@@ -51,6 +51,12 @@ const updateGameboard = function () {
   for ( let j = 0; j < gameboard.player2.length; j++ ) {
     $( `#sq${gameboard.player2[j]}` ).html( 'O' );
   }
+  $('.player-box').removeClass('highlight');
+  if (gameboard.currentPlayer === 'pl1'){
+    $('#pb1').addClass('highlight');
+  } else {
+    $('#pb2').addClass('highlight');
+  }
 };
 
 const declareWinner = function ( player ) {
