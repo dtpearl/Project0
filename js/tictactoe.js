@@ -1,3 +1,5 @@
+// ------------------- Game Logic -------------------------
+
 const gameboard = {
   player1: [],
   player2: [],
@@ -42,6 +44,9 @@ const gameboard = {
   }
 
 }
+
+
+// -------------------- DOM Manipulation -------------------
 
 const updateGameboard = function () {
   $( '.squares' ).html( '' );
@@ -112,6 +117,10 @@ $( '#player2' ).on( 'keyup', function () {
 
 
 /*  //(win conditions)
+
+  These are various attempts at game logic.
+  Kept for posterity. Each of these represented different attempts to
+  identify winners.
 
 
   Win conditions

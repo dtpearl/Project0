@@ -1,6 +1,6 @@
 # Project 0 - Tic Tac Toe
 
-## The pencil and paper game of your childhood with a digital upgrade.
+## The pencil and paper game of your childhood, with a digital upgrade.
 
 This web game puts together the skills I have been learning in HTML, CSS and JavaScript.
 
@@ -14,7 +14,7 @@ The task was to replicate the game of Tic Tac Toe, and in the process develop th
 ## HTML
 
 - Use semantic tags <head> <header> <body> etc. to set out the HTML document.
-- Use appropriate class names and ids to style elements with CSS and manipulate with JavaScript.
+- Use appropriate class names and IDs to style elements with CSS and manipulate with JavaScript.
 
 
 ## CSS
@@ -22,14 +22,14 @@ The task was to replicate the game of Tic Tac Toe, and in the process develop th
 I used a wide variety of CSS selectors to create the current version:
 - tags, classes and IDs.
 - pseudo class :hover for mouse over effect.
-- used Keyframes to create an animation effect for the board reset.
+- used _Keyframes_ to create an animation effect for the board reset.
 
 ## JavaScript - JQuery
 
 - All DOM manipulation in this project used JQuery.
 - Game logic was done in JavaScript.
 - The game itself is contained in a JavaScript object.
-- All DOM manipulation is done by calling external functions.
+- All DOM manipulation is done by calling external functions for separation of concerns.
 
 
 ### Interesting learning experiences  
