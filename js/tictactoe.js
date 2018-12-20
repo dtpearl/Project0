@@ -5,38 +5,38 @@ const gameboard = {
   currentPlayer: 'pl1',
   takeTurn: function (num) {
     if ( !this.playedNumbers.includes(num) ){
-      if (gameboard.currentPlayer === 'pl1') {
-      this.player1.push(num);
-      this.playedNumbers.push(num);
-      this.checkWin(this.player1);
+      if ( gameboard.currentPlayer === 'pl1' ) {
+      this.player1.push( num );
+      this.playedNumbers.push( num );
+      this.checkWin( this.player1 );
       this.currentPlayer = 'pl2';
       } else {
-      this.player2.push(num);
-      this.playedNumbers.push(num);
-      this.checkWin(this.player2);
+      this.player2.push( num );
+      this.playedNumbers.push( num );
+      this.checkWin( this.player2 );
       this.currentPlayer = 'pl1';
       }
     }
     updateGameboard();
   },
-  checkWin: function(playersArray) {
+  checkWin: function( playersArray ) {
 
     const checkAgainst = playersArray.sort().join('');
-    console.log(checkAgainst);
+    console.log( checkAgainst );
     if (
-      (/123/.test(checkAgainst)) ||
-      (/456/.test(checkAgainst)) ||
-      (/789/.test(checkAgainst)) ||
-      (/1/.test(checkAgainst) && /4/.test(checkAgainst) && /7/.test(checkAgainst)) ||
-      (/2/.test(checkAgainst) && /5/.test(checkAgainst) && /8/.test(checkAgainst)) ||
-      (/3/.test(checkAgainst) && /6/.test(checkAgainst) && /9/.test(checkAgainst)) ||
-      (/1/.test(checkAgainst) && /5/.test(checkAgainst) && /9/.test(checkAgainst)) ||
-      (/3/.test(checkAgainst) && /5/.test(checkAgainst) && /7/.test(checkAgainst))
+      (/123/.test( checkAgainst )) ||
+      (/456/.test( checkAgainst )) ||
+      (/789/.test( checkAgainst )) ||
+      (/1/.test( checkAgainst ) && /4/.test( checkAgainst ) && /7/.test( checkAgainst )) ||
+      (/2/.test( checkAgainst ) && /5/.test( checkAgainst ) && /8/.test( checkAgainst )) ||
+      (/3/.test( checkAgainst ) && /6/.test( checkAgainst ) && /9/.test( checkAgainst )) ||
+      (/1/.test( checkAgainst ) && /5/.test( checkAgainst ) && /9/.test( checkAgainst )) ||
+      (/3/.test( checkAgainst ) && /5/.test( checkAgainst ) && /7/.test( checkAgainst ))
 
     ) {
-      console.log(`${this.currentPlayer} is the winner`);
-      declareWinner(this.currentPlayer);
-    } else if (this.playedNumbers.length === 9) {
+      console.log(`${ this.currentPlayer } is the winner`);
+      declareWinner( this.currentPlayer );
+    } else if ( this.playedNumbers.length === 9 ) {
       declareDraw();
     }
   }
@@ -44,55 +44,55 @@ const gameboard = {
 }
 
 const updateGameboard = function () {
-  $('.squares').html('');
-  for (let i = 0; i < gameboard.player1.length; i++) {
-    $(`#sq${gameboard.player1[i]}`).html('X');
+  $( '.squares' ).html( '' );
+  for ( let i = 0; i < gameboard.player1.length; i++ ) {
+    $( `#sq${gameboard.player1[i]}` ).html( 'X' );
   }
-  for (let j = 0; j < gameboard.player2.length; j++) {
-    $(`#sq${gameboard.player2[j]}`).html('O');
+  for ( let j = 0; j < gameboard.player2.length; j++ ) {
+    $( `#sq${gameboard.player2[j]}` ).html( 'O' );
   }
 };
 
-const declareWinner = function (player) {
-  $('#gameover').show(600);
-  const winner = $(`#${player}`).text();
-  console.log(winner);
-  $('#winner').html(`The winner is ${winner}!`);
+const declareWinner = function ( player ) {
+  $( '#gameover' ).show( 600 );
+  const winner = $(`#${ player }`).text();
+  console.log( winner );
+  $( '#winner' ).html( `The winner is ${ winner }!` );
 }
 
 const declareDraw = function () {
-  $('#gameover').show(600);
-  $('#winner').html(`It's a draw!`);
+  $( '#gameover' ).show( 600 );
+  $( '#winner' ).html( `It's a draw!` );
 }
 
 const resetGame = function () {
-  $('.squares').removeClass('reset');
+  $( '.squares' ).removeClass( 'reset' );
   gameboard.player1 = [];
   gameboard.player2 = [];
   gameboard.playedNumbers = [];
   updateGameboard();
-  $('#gameover').hide(600);
-  $('.squares').addClass('reset');
+  $( '#gameover' ).hide( 600 );
+  $( '.squares' ).addClass( 'reset' );
 };
 
-$(document).ready(function(){
+$(document).ready( function(){
 
-$('.squares').on('click', function(){
-  const squareClicked = +$(this).attr('id').slice(2);
-  console.log(squareClicked);
-  gameboard.takeTurn(squareClicked);
+$( '.squares' ).on( 'click', function() {
+  const squareClicked = +$( this ).attr( 'id' ).slice(2);
+  console.log( squareClicked );
+  gameboard.takeTurn( squareClicked );
 });
 
-$('#reset-game').on('click', function () {
+$( '#reset-game' ).on( 'click', function () {
   resetGame();
 });
 
-$('#player1').on('keyup', function () {
-  $('#pl1').text($('#player1').val());
+$( '#player1' ).on( 'keyup', function () {
+  $( '#pl1' ).text( $( '#player1' ).val() );
 })
 
-$('#player2').on('keyup', function () {
-  $('#pl2').text($('#player2').val());
+$( '#player2' ).on( 'keyup', function () {
+  $( '#pl2' ).text( $( '#player2' ).val() );
 })
 });
 
