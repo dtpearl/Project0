@@ -28,7 +28,7 @@ const declareWinner = function ( player ) {
   const winner = $(`#${ player }`).text();
 
   if ( winner === 'Bill Murray' ) {
-    $( '#gameover' ).css("background-image", "url(https://fillmurray.com/600/600)");
+    $( '#gameover' ).css("background-image", "url(https://www.fillmurray.com/600/600)");
   }
   if ( winner === 'Nicolas Cage' ) {
     $( '#gameover' ).css("background-image", "url(http://www.placecage.com/610/610)");
