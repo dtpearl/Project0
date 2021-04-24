@@ -25,7 +25,6 @@ const gameboard = {
   checkWin: function( playersArray ) {
 
     const checkAgainst = playersArray.sort().join('');
-    console.log( checkAgainst );
     if (
       (/123/.test( checkAgainst )) ||
       (/456/.test( checkAgainst )) ||
@@ -37,7 +36,6 @@ const gameboard = {
       (/3/.test( checkAgainst ) && /5/.test( checkAgainst ) && /7/.test( checkAgainst ))
 
     ) {
-      console.log(`${ this.currentPlayer } is the winner`);
       declareWinner( this.currentPlayer );
     } else if ( this.playedNumbers.length === 9 ) {
       declareDraw();

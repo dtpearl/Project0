@@ -33,7 +33,6 @@ const declareWinner = function ( player ) {
   if ( winner === 'Nicolas Cage' ) {
     $( '#gameover' ).css("background-image", "url(http://www.placecage.com/610/610)");
   }
-  console.log( winner );
   $( '#winner' ).html( `The winner is ${ winner }!` );
 }
 
@@ -58,7 +57,6 @@ $(document).ready( function(){
 
 $( '.squares' ).on( 'click', function() {
   const squareClicked = +$( this ).attr( 'id' ).slice(2);
-  console.log( squareClicked );
   gameboard.takeTurn( squareClicked );
 });
 
