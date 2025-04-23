@@ -36,7 +36,7 @@ let gameboard = {
     const hasWon = WINNING_COMBINATIONS.some((combination) =>
       combination.every((position) => playersArray.includes(position))
     );
-    console.log("new checkWin", { hasWon, playersArray });
+
     if (hasWon) {
       declareWinner(this.currentPlayer);
     } else if (this.playedNumbers.length === 9) {
