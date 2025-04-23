@@ -29,8 +29,7 @@ const declareWinner = function (player) {
       "background-image",
       "url(https://fillmurray.lucidinternets.com/600/600)"
     );
-  }
-  if (winner === "Nicolas Cage") {
+  } else if (winner === "Nicolas Cage") {
     $("#gameover").css(
       "background-image",
       "url(http://placecage.lucidinternets.com/610/610)"

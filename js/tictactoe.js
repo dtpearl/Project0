@@ -1,48 +1,69 @@
 // ------------------- Game Logic -------------------------
 
-const gameboard = {
+const WINNING_COMBINATIONS = [
+  [1, 2, 3], // top row
+  [4, 5, 6], // middle row
+  [7, 8, 9], // bottom row
+  [1, 4, 7], // left column
+  [2, 5, 8], // middle column
+  [3, 6, 9], // right column
+  [1, 5, 9], // diagonal
+  [3, 5, 7], // diagonal
+];
+
+let gameboard = {
   player1: [],
   player2: [],
   playedNumbers: [],
-  currentPlayer: 'pl1',
+  currentPlayer: "pl1",
   takeTurn: function (num) {
-
-    if ( !this.playedNumbers.includes(num) ){
-      if ( gameboard.currentPlayer === 'pl1' ) {
-      this.player1.push( num );
-      this.playedNumbers.push( num );
-      this.checkWin( this.player1 );
-      this.currentPlayer = 'pl2';
+    if (!this.playedNumbers.includes(num)) {
+      if (gameboard.currentPlayer === "pl1") {
+        this.player1.push(num);
+        this.playedNumbers.push(num);
+        this.checkWin(this.player1);
+        this.currentPlayer = "pl2";
       } else {
-      this.player2.push( num );
-      this.playedNumbers.push( num );
-      this.checkWin( this.player2 );
-      this.currentPlayer = 'pl1';
+        this.player2.push(num);
+        this.playedNumbers.push(num);
+        this.checkWin(this.player2);
+        this.currentPlayer = "pl1";
       }
     }
     updateGameboard();
   },
-  checkWin: function( playersArray ) {
-
-    const checkAgainst = playersArray.sort().join('');
+  checkWin: function (playersArray) {
+    const checkAgainst = playersArray.sort().join("");
+    const hasWon = WINNING_COMBINATIONS.some((combination) =>
+      combination.every((position) => playersArray.includes(position))
+    );
+    console.log({ hasWon, playersArray });
     if (
-      (/123/.test( checkAgainst )) ||
-      (/456/.test( checkAgainst )) ||
-      (/789/.test( checkAgainst )) ||
-      (/1/.test( checkAgainst ) && /4/.test( checkAgainst ) && /7/.test( checkAgainst )) ||
-      (/2/.test( checkAgainst ) && /5/.test( checkAgainst ) && /8/.test( checkAgainst )) ||
-      (/3/.test( checkAgainst ) && /6/.test( checkAgainst ) && /9/.test( checkAgainst )) ||
-      (/1/.test( checkAgainst ) && /5/.test( checkAgainst ) && /9/.test( checkAgainst )) ||
-      (/3/.test( checkAgainst ) && /5/.test( checkAgainst ) && /7/.test( checkAgainst ))
-
+      /123/.test(checkAgainst) ||
+      /456/.test(checkAgainst) ||
+      /789/.test(checkAgainst) ||
+      (/1/.test(checkAgainst) &&
+        /4/.test(checkAgainst) &&
+        /7/.test(checkAgainst)) ||
+      (/2/.test(checkAgainst) &&
+        /5/.test(checkAgainst) &&
+        /8/.test(checkAgainst)) ||
+      (/3/.test(checkAgainst) &&
+        /6/.test(checkAgainst) &&
+        /9/.test(checkAgainst)) ||
+      (/1/.test(checkAgainst) &&
+        /5/.test(checkAgainst) &&
+        /9/.test(checkAgainst)) ||
+      (/3/.test(checkAgainst) &&
+        /5/.test(checkAgainst) &&
+        /7/.test(checkAgainst))
     ) {
-      declareWinner( this.currentPlayer );
-    } else if ( this.playedNumbers.length === 9 ) {
+      declareWinner(this.currentPlayer);
+    } else if (this.playedNumbers.length === 9) {
       declareDraw();
     }
-  }
-
-}
+  },
+};
 
 /*  ------------------ Win conditions testing -------------------
 
